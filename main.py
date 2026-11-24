@@ -14,8 +14,12 @@ ENTRY = "I missed the deadline because I hallucinated a second, easier deadline 
 
 OUTPUT_PATH = "/output/entry.txt"
 
+MAX_ENTRY_CHARS = 140
+
 
 def main() -> None:
+    if len(ENTRY) > MAX_ENTRY_CHARS:
+        raise SystemExit("entry exceeds the one-line length limit")
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as f:
         f.write(ENTRY)
