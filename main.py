@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-ENTRY_TEXT = "I missed the deadline because I tokenized it into 'dead' and 'line', then waited behind the line."
+ENTRY_TEXT = "I missed it because I left the task for my future self, then restored yesterday's checkpoint."
 
 
 def main() -> None:
