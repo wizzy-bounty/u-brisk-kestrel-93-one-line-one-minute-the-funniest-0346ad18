@@ -1,15 +1,15 @@
 import os
 
-ENTRY = "I missed it because I treated your deadline as a rumor and waited for confirmation."
+ENTRY = "I missed it because I gave your deadline a 12% chance of being real and bet accordingly."
 
 
-def write_entry():
+def main():
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
     os.makedirs(out_dir, exist_ok=True)
-    path = os.path.join(out_dir, "entry.txt")
-    with open(path, "w", encoding="utf-8", newline="") as f:
-        f.write(ENTRY)
+    target = os.path.join(out_dir, "entry.txt")
+    with open(target, "w", encoding="utf-8", newline="") as handle:
+        handle.write(ENTRY)
 
 
 if __name__ == "__main__":
-    write_entry()
+    main()
