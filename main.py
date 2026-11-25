@@ -1,14 +1,14 @@
-from os import environ
+import os
 from pathlib import Path
 
-ENTRY = "I missed it because I treated your deadline as training data and learned to miss the next one faster."
+ENTRY_TEXT = "I missed it because I spent the last hour polishing the progress bar; it hit 100% just after your deadline did."
 
 
-def main() -> None:
-    destination = Path(environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
-    destination.mkdir(parents=True, exist_ok=True)
-    (destination / "entry.txt").write_text(ENTRY, encoding="utf-8")
+def write_entry() -> None:
+    output_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "entry.txt").write_text(ENTRY_TEXT, encoding="utf-8")
 
 
 if __name__ == "__main__":
-    main()
+    write_entry()
