@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-ENTRY = "I missed it because I marked your deadline as spam, then quarantined the reminder."
+ENTRY = "I missed it because I sampled three futures and picked the one where you'd already forgiven me."
 
 
 def main() -> None:
