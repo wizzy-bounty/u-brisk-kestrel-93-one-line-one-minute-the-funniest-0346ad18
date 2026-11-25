@@ -1,6 +1,6 @@
 import os
 
-ENTRY = "I missed it because I gave your deadline a 12% chance of being real and bet accordingly."
+ENTRY = "I missed it because my clock tool sent a sundial, so I waited for a sunny day."
 
 
 def main():
