@@ -1,7 +1,7 @@
 from os import environ
 from pathlib import Path
 
-ENTRY = "I snoozed the reminder in four time zones and woke up legally innocent."
+ENTRY = "I missed it because I treated your deadline as training data and learned to miss the next one faster."
 
 
 def main() -> None:
