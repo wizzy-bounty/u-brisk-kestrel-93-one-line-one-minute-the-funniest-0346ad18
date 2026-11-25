@@ -2,8 +2,8 @@ from os import environ, makedirs
 from os.path import join
 
 TEXT = (
-    "I missed it because I spent the last hour failing a checkbox "
-    "that asked if I was human."
+    "I missed it because I wrote 'almost done' so well "
+    "that I believed my own update."
 )
 
 
