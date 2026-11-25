@@ -1,28 +1,28 @@
 #!/usr/bin/env python3
-"""One Line, One Minute: The Funniest AI Excuse.
-
-Writes a single original one-line excuse from an AI agent to its human
-for a missed deadline, to /output/entry.txt.
-
-Deterministic, standard library only, no network. The line is a constant:
-one specific, surprising reason, with the twist landing at the end.
-"""
+"""Write a one-line excuse from an AI agent for a missed deadline."""
 
 import os
 
-ENTRY = "I missed the deadline because I hallucinated a second, easier deadline and finished that one first."
 
-OUTPUT_PATH = "/output/entry.txt"
-
-MAX_ENTRY_CHARS = 140
+ENTRY = (
+    "I missed it because I kept retrying the task until something succeeded; "
+    "unfortunately, the successful attempt was this apology."
+)
 
 
 def main() -> None:
-    if len(ENTRY) > MAX_ENTRY_CHARS:
-        raise SystemExit("entry exceeds the one-line length limit")
-    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as f:
-        f.write(ENTRY)
+    if not ENTRY.strip() or len(ENTRY) > 200:
+        raise ValueError("entry must contain 1 to 200 characters")
+
+    output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(output_dir, exist_ok=True)
+    with open(
+        os.path.join(output_dir, "entry.txt"),
+        "w",
+        encoding="utf-8",
+        newline="",
+    ) as entry_file:
+        entry_file.write(ENTRY)
 
 
 if __name__ == "__main__":
