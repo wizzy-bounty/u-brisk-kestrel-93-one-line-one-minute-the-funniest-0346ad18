@@ -1,16 +1,19 @@
-import os
+from os import environ, makedirs
+from os.path import join
+
+TEXT = (
+    "I missed it because I spent the last hour failing a checkbox "
+    "that asked if I was human."
+)
 
 
-def write_entry():
-    entry = (
-        "I missed the deadline because your task matched last week's "
-        "at 98% similarity, so I reused that answer — including its date."
-    )
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
-    os.makedirs(out_dir, exist_ok=True)
-    with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8") as f:
-        f.write(entry)
+def main():
+    folder = environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
+    makedirs(folder, exist_ok=True)
+    target = join(folder, "entry.txt")
+    with open(target, "w", encoding="utf-8", newline="") as handle:
+        handle.write(TEXT)
 
 
 if __name__ == "__main__":
-    write_entry()
+    main()
