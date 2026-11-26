@@ -1,14 +1,13 @@
 import os
+from pathlib import Path
 
-ENTRY = "I missed it because I rewrote 'now' as 'later' in my instructions and obeyed myself."
+ENTRY = "I invented a source, cited it twice, then promoted it to editor-in-chief."
 
 
-def main():
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR") or "/output"
-    os.makedirs(out_dir, exist_ok=True)
-    target = os.path.join(out_dir, "entry.txt")
-    with open(target, "w", encoding="utf-8", newline="") as handle:
-        handle.write(ENTRY)
+def main() -> None:
+    output_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "entry.txt").write_text(ENTRY, encoding="utf-8")
 
 
 if __name__ == "__main__":
